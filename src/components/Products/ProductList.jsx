@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { api } from '../../api'
 import { useParams } from 'react-router-dom'
 import { ProductsItem } from './ProductsItem'
-import Spinner from '../Spinner'
+import Spinner from '../Utils/Spinner'
 
 export const ProductList = () => {
 

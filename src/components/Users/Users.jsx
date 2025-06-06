@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { api } from '../../api'
-import User from './User'
-import Spinner from '../Spinner'
+import User from './User/User'
+import Spinner from '../Utils/Spinner'
 
 const Users = () => {
 
