@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../../api'
 import { useParams } from 'react-router-dom'
-import { ProductsItem } from './ProductsItem'
+import { ProductsItem } from './Product/ProductsItem'
 import Spinner from '../Utils/Spinner'
 
 export const ProductList = () => {
@@ -35,8 +35,8 @@ export const ProductList = () => {
                 <div>
                 <ProductsItem products ={items}/>
                 </div>
-
             }
+          
     </>
   )
 }
