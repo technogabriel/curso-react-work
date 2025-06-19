@@ -1,36 +1,28 @@
 import {Route, Routes, BrowserRouter} from 'react-router-dom'
-import  Navbarlayout  from './components/Layout/NavbarLayout'
-import  Home  from './views/ViewHome'
-import Product from './views/ViewProduct'
-import FooterLayout from './components/Layout/FooterLayout'
+import  Login  from './components/Login/Login'
+import  {ProductList}  from './components/Products/ProductList'
 import "./index.css"
-import HeaderLayout from './components/Layout/HeaderLayout'
 import Users from './components/Users/Users'
 import ProductItemId from './components/Products/Product/ProductItemId'
-
-
-
+import Page from './page/Page'
+import Home from './components/Home/Home'
+import UserById from './components/Users/User/UserById'
 
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-      <HeaderLayout />
-        <Navbarlayout />         
+        <Page> 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Product />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/products' element={<ProductList />} />
           <Route path='/users' element={<Users />} />
           <Route path= 'products/:id' element={<ProductItemId />} />
-         
+          <Route path='/users/:userId' element={<UserById />} />
         </Routes>
-            <FooterLayout/>
-      </BrowserRouter>
-     
-
-     
+        </Page>
     </>
   )
 }

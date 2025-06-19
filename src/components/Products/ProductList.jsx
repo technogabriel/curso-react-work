@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../../api'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { ProductsItem } from './Product/ProductsItem'
 import Spinner from '../Utils/Spinner'
 
 export const ProductList = () => {
+    const [loading, setLoading] = useState(false)
+    const [items, setItems] = useState([])
+    const [filteredItems, setFilteredItems] = useState([])
+    const { categoryId } = useParams()
+    const location = useLocation();
 
-   const [loading, setLoading] = useState(false)
-     const [items, setItems] = useState([])
-       const {categoryId} = useParams()
-
+    // Obtener el parámetro de búsqueda desde el query string
     useEffect(() => {
         setLoading(true)
         api.get('products')
             .then((response) => {
-                setItems(response.data)    
+                setItems(response.data)
             })
             .catch((error) => {
                 console.error("Error fetching products:", error);
@@ -23,20 +25,29 @@ export const ProductList = () => {
                 setLoading(false);
             });
     }, [categoryId]);
-      console.log("items ", items)
 
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const search = params.get('search') || '';
+        if (search.length > 0) {
+            setFilteredItems(
+                items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
+            );
+        } else {
+            setFilteredItems(items);
+        }
+    }, [location.search, items]);
 
-  return (
-      <>
-       {
+    return (
+        <>
+            {
                 loading ?
-              <Spinner/>
-                :
-                <div>
-                <ProductsItem products ={items}/>
-                </div>
+                    <Spinner />
+                    :
+                    <div>
+                        <ProductsItem products={filteredItems} />
+                    </div>
             }
-          
-    </>
-  )
+        </>
+    )
 }

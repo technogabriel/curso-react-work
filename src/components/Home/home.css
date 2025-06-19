@@ -1,0 +1,19 @@
+
+#home{
+    background-image: url("https://img.freepik.com/vector-premium/bienvenido-al-concepto-gran-apertura-tienda-ilustracion-vectorial_476325-768.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    width: 50vw;
+    min-height: 50vh;
+    margin:auto;
+    
+}
+
+#home h1{
+    padding-top: 35px;
+    margin-top: auto;
+    text-align: center;
+    font-family: fantasy;
+}
+
