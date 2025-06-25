@@ -1,7 +1,6 @@
-
-import HeaderLayout from '../UI/Header/HeaderLayout'
-import FooterLayout from '../UI/Footer/FooterLayout'
-import NavbarLayout from '../UI/Navbar/NavbarLayout'
+import HeaderLayout from '../components/UI/Header/HeaderLayout'
+import NavbarLayout from '../components/UI/Navbar/NavbarLayout'
+import FooterLayout from '../components/UI/Footer/FooterLayout'
 
 const Index = (props) => {
   return (

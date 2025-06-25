@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import Spinner from '../../Utils/Spinner';
+import { useParams } from 'react-router';
 
-const User = ({ userId }) => {
+const User = () => {
+    const { userId } = useParams();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();

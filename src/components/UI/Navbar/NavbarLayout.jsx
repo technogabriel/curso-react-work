@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router';
-import { api } from '../../api';
+import { api } from '../../../api/index';
 
 export const Navbar = () => {
     const [search, setSearch] = useState("");
