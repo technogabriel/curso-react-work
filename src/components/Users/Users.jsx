@@ -26,7 +26,7 @@ const Users = () => {
     return (
         <>
             {loading ? <Spinner /> :
-                <div className="container-fluid d-flex flex-wrap justify-content-center p-3">
+                <div className="container-fluid d-flex flex-wrap justify-content-center p-3" id="users">
                     {users.map(user => (
                         <div className='card mx-2' key={user.id} style={{ width: "18rem", cursor: 'pointer' }}
                         >
